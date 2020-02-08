@@ -8,7 +8,7 @@ var status= function(iter){
             getStatus(iter).then(function(getStatusReturn){
                 console.log(getStatusReturn)
                 if (iter<5) {
-                    resolve(status(iter+1))
+                    return resolve(status(iter+1))
                 } else
                  {
                      resolve('Solved')
@@ -16,7 +16,7 @@ var status= function(iter){
             })
 
         },
-        1000)
+        100)
     })
 }
 
@@ -26,8 +26,8 @@ var status= function(iter){
 var getStatus=function(iter){
     console.log('Opening getStatus - iter: '.concat(iter))
     return new Promise(function(resolve,reject){
-        setTimeout(resolve('Return get Status - iter :'.concat(iter)),500)
+        setTimeout(resolve('Return get Status - iter :'.concat(iter)),50)
     })
 }
 
-status(0)
+status(0).then(function(){console.log('Finished')})
