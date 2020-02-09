@@ -1,5 +1,13 @@
 console.log('Test Promises')
 
+let states= [{d:1},{d:2}]
+
+let newStates= states.reduce(function(pv,cv,i){
+    pv.push(cv)
+    return pv
+},[])
+
+console.log(newStates)
 
 var status= function(iter){
     console.log('Opening Status - iter: '.concat(iter))
@@ -30,4 +38,4 @@ var getStatus=function(iter){
     })
 }
 
-status(0).then(function(){console.log('Finished')})
+//status(0).then(function(){console.log('Finished')})
